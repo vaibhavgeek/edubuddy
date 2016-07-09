@@ -1,28 +1,3 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== README file
+This is a hackathon project for AngelHack Jaipur 2016.I will get back and write my event experience later on here in the space below. 
+The idea is to create a specific chanel for students to learn better. Using the HavenOnDemand APIs I will try to limit the posts only to that specific category for learning. 
