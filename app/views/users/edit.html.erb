@@ -1,0 +1,19 @@
+<h1> Edit Your Profile </h1>
+<div class = "col-md-4 col-md-offset-4">
+<%= form_for @user, html: { multipart: true } do |form| %>
+  <div class="field">
+    <%= form.label :First_Name %><br />
+   <%= form.text_field :first_name %> <br/>
+</div>
+  <div class="field">
+    <%= form.label :Last_Name %><br />
+   <%= form.text_field :last_name %><br/>
+   </div>
+     <div class="field">
+    <%= form.label :Image %><br />
+
+  <%= form.file_field :image %> <br/>
+  </div>
+  <%= form.submit  "Update Profile"%>
+<% end %>
+</div>

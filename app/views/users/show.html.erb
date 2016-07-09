@@ -1,2 +1,28 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="col-md-2"><br/>
+<%= image_tag @user.image.url(:medium) %>
+
+</div>
+<div class="col-md-10">
+<h1><%= current_user.first_name %> <%= current_user.last_name%></h1>
+<br/>
+<% if current_user %>
+<%= link_to "edit profile" , edit_user_path(current_user) , :class => "pull-right" %>
+<% end %>
+</div>
+<div class="col-md-12">
+<% if @showfeeds.count > 0 %>
+<h3> Posts from <%= current_user.first_name %> <%= current_user.last_name%> </h3>
+<% else %>
+<h3> This user has not posted on anything yet </h3>
+<% end %>
+<% @showfeeds.each do |feed| %>
+<%= feed.user.first_name %> posted : <br/>
+<%= image_tag feed.user.image.url(:thumb) %>
+<% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
+<%= image_tag feed.image.url(:medium) %> <br/>
+<% end %>
+	<%= feed.content %> <br/>
+	<hr/>		
+	<% end %>
+</div>
+

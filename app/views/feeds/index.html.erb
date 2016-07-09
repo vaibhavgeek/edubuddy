@@ -1,9 +1,19 @@
-<%= params.inspect %>	
-<%= form_for :feed , url: channel_feeds_path(:channel_id =>1) do |f| %>
-<%= f.text_area :content ,  class: 'form-control'%>
-<%= f.submit "Post" , class: "btn btn-primary pull-right" %>
-<% end %>
 
+<%= form_for :feed , url: channel_feeds_path(:channel_id =>1) , html: { multipart: true } do |f| %>
+
+<%= f.text_area :content ,  class: 'form-control' ,:style => "margin-top:10px;" %>
+     <%= f.file_field :image %>
+
+<%= f.submit "Post" , class: "btn btn-large btn-success pull-right" %>
+<% end %>
+<br/><br/>
 <% @showfeeds.each do |feed| %>
-	<%= feed.content %>
+<%= feed.user.first_name %> posted : <br/>
+<%= image_tag feed.user.image.url(:thumb) %>
+<% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
+<%= image_tag feed.image.url(:medium) %> <br/>
+<% end %>
+	<%= feed.content %> <br/>
+	<hr/>		
 	<% end %>
+</div>

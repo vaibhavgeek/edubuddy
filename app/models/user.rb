@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :feeds
 
+  has_attached_file :image, styles: { medium: "100x100>", thumb: "50x50>" } ,  default_url: "/assets/missing:style.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

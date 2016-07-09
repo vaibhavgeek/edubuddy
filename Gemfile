@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'havenondemand' , git: 'https://github.com/HP-Haven-OnDemand/havenondemand-ruby'
 #Used for Image uploading in certain models
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
+gem "paperclip"
 # Used for having clean code for proper funtioning. 
 gem 'draper'
 # This is used for OmniAuth along with devise
