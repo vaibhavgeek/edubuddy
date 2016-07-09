@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#Used for Image uploading in certain models
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 # Used for having clean code for proper funtioning. 
 gem 'draper'
 # This is used for OmniAuth along with devise

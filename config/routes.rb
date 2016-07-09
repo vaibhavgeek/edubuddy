@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users
   get 'home/index'
+  get 'home/faq'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -15,7 +18,10 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+     resources :channels do 
+             resources :feeds
+     end
+      resources :users
   # Example resource route with options:
   #   resources :products do
   #     member do
