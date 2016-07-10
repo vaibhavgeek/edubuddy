@@ -4,13 +4,13 @@
 
 </div>
 <div class="col-md-10">
-<h1><%= current_user.first_name %> <%= current_user.last_name%></h1>
+<h1><%= @user.first_name %> <%= @user.last_name%></h1>
+<p> <%= @user.description %> </p>
 <% score = 0 %>
 <% @showfeeds.each do |feed| %>
 <% score = score + feed.score %>
 <% if score > 0.5 %>
 <%= image_tag "helpful" %> <span style="font-size:20px"> Helpful </span>
-
 <% end %>
 <% end %>
 <br/>
@@ -21,18 +21,26 @@
 <div class="col-md-12">
 
 <% if @showfeeds.count > 0 %>
-<h3> Posts from <%= current_user.first_name %> <%= current_user.last_name%> </h3>
+<h3> Posts from <%= @user.first_name %> <%= @user.last_name%> </h3>
 <% else %>
 <h3> This user has not posted on anything yet </h3>
 <% end %>
 <% @showfeeds.each do |feed| %>
-
-<%= feed.user.first_name %> posted : <br/>
+<div class="media">
+  <div class="media-left">
+    <%= link_to user_path(feed.user) do %>
 <%= image_tag feed.user.image.url(:thumb) %>
 <% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
 <%= image_tag feed.image.url(:medium) %> <br/>
 <% end %>
-	<%= feed.content %> <br/>
+    <% end %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading"><%= feed.user.first_name %> posted in <%= link_to Channel.find(feed.channel_id).name  , channel_feeds_path(:channel_id => feed.channel_id) %></h5>
+<%= feed.content %>
+  </div>
+</div>
+ <br/>
 	<hr/>		
 	<% end %>
 </div>

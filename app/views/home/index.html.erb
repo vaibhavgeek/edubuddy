@@ -1,2 +1,21 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user %> 
+<h1> Study Groups Present </h1>
+<% @allstudygrps.each do |grp| %>
+<div class="col-xs-6 col-md-4">
+<%= link_to  channel_feeds_path(:channel_id => grp.id) , :class => "thumbnail grp" do %>
+     <%= image_tag grp.image.url(:medium) %>
+
+     <div class="caption">
+        <h3><%= grp.name %></h3>
+        <p><%= grp.description %></p>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+<%= link_to "create new study group" ,  new_channel_path %> 
+
+<% else %>
+
+<h1> please sign in to access study groups </h1>
+
+<% end %>

@@ -23,10 +23,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">channels</a></li>
+        <li><%= link_to "study groups" , root_path %></li>
         <% if current_user %>
-        <li><%= link_to "#trignometry" , channel_feeds_path(:channel_id => '1') %></li>
-             <li><%= link_to "profile" , current_user %></li>
+             <li><%= link_to "my profile" , current_user %></li>
 <% end %>
       </ul>
       

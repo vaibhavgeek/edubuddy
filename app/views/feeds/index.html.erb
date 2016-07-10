@@ -7,12 +7,21 @@
 <% end %>
 <br/><br/>
 <% @showfeeds.each do |feed| %>
-<%= feed.user.first_name %> posted : <br/>
+<div class="media">
+  <div class="media-left">
+    <%= link_to user_path(feed.user) do %>
 <%= image_tag feed.user.image.url(:thumb) %>
 <% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
 <%= image_tag feed.image.url(:medium) %> <br/>
 <% end %>
-	<%= feed.content %> <br/>
+    <% end %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading"><%= feed.user.first_name %> posted :-</h5>
+<%= feed.content %>
+  </div>
+</div>
+ <br/>
 	<hr/>		
 	<% end %>
 </div>
