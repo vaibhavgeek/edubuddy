@@ -74,6 +74,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.8)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     draper (2.1.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  devise-bootstrap-views
   draper
   font-awesome-rails
   havenondemand!

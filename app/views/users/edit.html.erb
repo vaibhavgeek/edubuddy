@@ -3,11 +3,11 @@
 <%= form_for @user, html: { multipart: true } do |form| %>
   <div class="field">
     <%= form.label :First_Name %><br />
-   <%= form.text_field :first_name %> <br/>
+   <%= form.text_field :first_name , :class => 'form-control'%> <br/>
 </div>
   <div class="field">
     <%= form.label :Last_Name %><br />
-   <%= form.text_field :last_name %><br/>
+   <%= form.text_field :last_name , :class => 'form-control' %><br/>
    </div>
      <div class="field">
     <%= form.label :Image %><br />
@@ -16,8 +16,8 @@
   </div>
   <div class="field">
     <%= form.label :Description %><br />
-   <%= form.text_area :description %> <br/>
+   <%= form.text_area :description, :class => 'form-control' %> <br/>
 </div>
-  <%= form.submit  "Update Profile"%>
+  <%= form.submit  "Update Profile" , :class => 'btn btn-primary'%>
 <% end %>
 </div>

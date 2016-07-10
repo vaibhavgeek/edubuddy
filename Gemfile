@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise-bootstrap-views'
+
 gem 'havenondemand' , git: 'https://github.com/HP-Haven-OnDemand/havenondemand-ruby'
 #Used for Image uploading in certain models
 gem "paperclip"

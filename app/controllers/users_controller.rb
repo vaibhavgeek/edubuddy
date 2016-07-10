@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-  	@showfeeds = Feed.where(:user_id => current_user.id)
+  	@showfeeds = Feed.where(:user_id => @user.id).order("created_at DESC")
   end
   def edit
   	@user = current_user

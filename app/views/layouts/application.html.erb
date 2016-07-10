@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Edubuddy</title>
+  <title>Edu Buddy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,28 +20,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">EduBuddy</a>
+      <a class="navbar-brand">EduBuddy</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "study groups" , root_path %></li>
+        <li><%= link_to root_path do  %><i class="glyphicon glyphicon-list-alt"> </i> study groups<% end %></li>
         <% if current_user %>
-             <li><%= link_to "my profile" , current_user %></li>
+             <li><%= link_to current_user do %><i class="glyphicon glyphicon-user"> </i> my profile <% end %></li>
 <% end %>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "faq" ,  home_faq_path %></li>
+              <li><%= link_to  home_faq_path do %> <i class="glyphicon glyphicon-question-sign"> </i> faq <% end %></li>
 
        <% if current_user %>
-      	<li><%= link_to "logout" , destroy_user_session_path , :method => "delete" %></li>
+      	<li><%= link_to destroy_user_session_path , :method => "delete" do %> <i class="glyphicon glyphicon-log-out"> </i> logout <% end %></li>
 
        <% else %>
        
-       <li><%= link_to "login" , new_user_session_path %></li>
-      	<li><%= link_to "signup" , new_user_registration_path %></li>
+       <li><%= link_to new_user_session_path do %><i class="glyphicon glyphicon-log-in"> </i> login <% end %></li>
+      	<li><%= link_to new_user_registration_path do %> <i class="glyphicon glyphicon-new-window"> </i> signup <% end %></li>
       
        <% end %>
         
@@ -46,6 +49,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+</div>
+</div>
 <div class="row">
 <div class="col-md-8 col-md-offset-2 panel panel-default">
        <% if alert %>

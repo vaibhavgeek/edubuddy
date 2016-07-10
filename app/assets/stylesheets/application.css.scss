@@ -16,10 +16,13 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-theme
+ *= require devise_bootstrap_views
  */
 body
 {
 	background-image: image-url('background.jpg');
+	overflow-x: hidden;
+
 }
 .grp:hover {
 text-decoration:none;	

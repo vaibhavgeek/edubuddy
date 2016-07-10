@@ -9,12 +9,13 @@
 <% score = 0 %>
 <% @showfeeds.each do |feed| %>
 <% score = score + feed.score %>
-<% if score > 0.5 %>
+<% end %>
+<% if score > 0.7 %>
 <%= image_tag "helpful" %> <span style="font-size:20px"> Helpful </span>
 <% end %>
-<% end %>
+
 <br/>
-<% if current_user %>
+<% if current_user == @user %>
 <%= link_to "edit profile" , edit_user_path(current_user) , :class => "pull-right" %>
 <% end %>
 </div>
@@ -30,13 +31,14 @@
   <div class="media-left">
     <%= link_to user_path(feed.user) do %>
 <%= image_tag feed.user.image.url(:thumb) %>
-<% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
-<%= image_tag feed.image.url(:medium) %> <br/>
-<% end %>
     <% end %>
   </div>
   <div class="media-body">
     <h5 class="media-heading"><%= feed.user.first_name %> posted in <%= link_to Channel.find(feed.channel_id).name  , channel_feeds_path(:channel_id => feed.channel_id) %></h5>
+    <% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
+<%= image_tag feed.image.url(:medium) %> <br/>
+<% end %>
+
 <%= feed.content %>
   </div>
 </div>
