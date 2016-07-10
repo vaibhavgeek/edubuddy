@@ -38,7 +38,7 @@ require 'rest_client'
 			if @jso["face"].to_s == "[]"
 			@feed.save	
 		    else
-		    flash[:alert] = "Please submit images related to educational material. People are detected in the ohoto you uploaded"
+		    flash[:alert] = "Please submit images related to educational material. People are detected in the photo you uploaded"
 			end
 			else
 			 flash[:alert] = "Please submit posts that are educational in nature"	

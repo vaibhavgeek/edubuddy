@@ -1,3 +1,6 @@
 == README file
 This is a hackathon project for AngelHack Jaipur 2016.I will get back and write my event experience later on here in the space below. 
 The idea is to create a specific chanel for students to learn better. Using the HavenOnDemand APIs I will try to limit the posts only to that specific category for learning. 
+
+Here is the link for screenshots of the website, 
+https://www.dropbox.com/sh/kwkgajl3a8ipzz1/AAAFhMoH1ZKg3JoG4MgRcZMza?dl=0
