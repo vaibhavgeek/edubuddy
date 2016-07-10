@@ -11,6 +11,7 @@ require 'rest_client'
 		#@response = client.post('detectfaces',{'file' => Paperclip.io_adapters.for(feeds_params[:image]).read })
 		#filea = Paperclip.io_adapters.for(feeds_params[:image]
 		#client= HODClient.new("http://api.havenondemand.com/1/api/sync/","2b7a646b-286e-40df-bd28-7e57f8e3739c")
+     if feeds_params[:content]
         source = RestClient.get "http://api.havenondemand.com/1/api/sync/analyzesentiment/v1?apikey=2b7a646b-286e-40df-bd28-7e57f8e3739c&text="+feeds_params[:content].to_s 
 		sentiment = JSON.parse(source)
 		
@@ -21,8 +22,8 @@ require 'rest_client'
 	    	if conc["concept"].to_s == "movies" ||  conc["concept"].to_s == "idiot" || conc["concept"].to_s == "let s go for movies!"
 				not_good = "yes"
 			end	    
-			puts conc["concept"].to_s
 	    end
+	 end
 
 		@feed = Feed.new(feeds_params)
         @feed.score = sentiment["aggregate"]["score"].to_f
@@ -37,7 +38,7 @@ require 'rest_client'
 			if @jso["face"].to_s == "[]"
 			@feed.save	
 		    else
-		    flash[:alert] = "Please submit images related to educational material"
+		    flash[:alert] = "Please submit images related to educational material. People are detected in the ohoto you uploaded"
 			end
 			else
 			 flash[:alert] = "Please submit posts that are educational in nature"	
@@ -51,6 +52,14 @@ require 'rest_client'
 			end
 		end
 		redirect_to channel_feeds_path(:channel_id => params[:channel_id])
+	end
+
+	def destroy
+		@feed = Feed.find(params[:id])
+		if current_user.id == @feed.user_id
+		@feed.destroy
+	    end
+		redirect_to user_path(current_user)
 	end
 private
 	def feeds_params 

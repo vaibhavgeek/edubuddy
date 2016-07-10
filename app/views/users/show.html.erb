@@ -35,12 +35,20 @@
   </div>
   <div class="media-body">
     <h5 class="media-heading"><%= feed.user.first_name %> posted in <%= link_to Channel.find(feed.channel_id).name  , channel_feeds_path(:channel_id => feed.channel_id) %></h5>
+
+ <% if current_user && current_user.id == feed.user.id %>
+                    <%= link_to raw(" <span aria-hidden='true'>×</span>"), 
+          channel_feed_path(channel_id: feed.channel_id, id: feed.id), 
+           class: "pull-right close" , :method => :delete , data: {confirm: "Do you want to delete this feed item?"} %>
+                     <% end %>
     <% if feed.image.url(:medium).to_s != "/images/medium/missing.png" %>
 <%= image_tag feed.image.url(:medium) %> <br/>
 <% end %>
 
 <%= feed.content %>
+ 
   </div>
+
 </div>
  <br/>
 	<hr/>		

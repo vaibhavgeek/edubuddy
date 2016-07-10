@@ -1,3 +1,4 @@
+<h2>Study Group: <%= Channel.find(params[:channel_id]).name %> </h2>
 <%= form_for :feed , url: channel_feeds_path(:channel_id => params[:channel_id]) , html: { multipart: true } do |f| %>
 
 <%= f.text_area :content ,  class: 'form-control' ,:style => "margin-top:10px;" %>
